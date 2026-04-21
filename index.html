@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Morgan - DevOps Engineer Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+        
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .resume-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 50px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 50%;
+        }
+        
+        .name {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .title {
+            font-size: 1.4em;
+            color: #a0aec0;
+            font-weight: 400;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95em;
+            color: #e2e8f0;
+        }
+        
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.8;
+        }
+        
+        .main-content {
+            padding: 50px 60px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .section-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9em;
+        }
+        
+        .summary {
+            font-size: 1.05em;
+            color: #4a5568;
+            line-height: 1.8;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            color: #4c51bf;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            border: 1px solid #667eea30;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+        
+        .experience-item {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .experience-item:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .job-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .company {
+            color: #667eea;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+        
+        .date-location {
+            text-align: right;
+            color: #718096;
+            font-size: 0.9em;
+        }
+        
+        .experience-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .experience-list li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+        
+        .experience-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .cert-item {
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 10px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .cert-name {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        
+        .cert-issuer {
+            font-size: 0.9em;
+            color: #718096;
+        }
+        
+        .education-item {
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 12px;
+        }
+        
+        .degree {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1.1em;
+        }
+        
+        .school {
+            color: #667eea;
+            margin: 5px 0;
+        }
+        
+        .edu-details {
+            color: #718096;
+            font-size: 0.9em;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px;
+            }
+            .name {
+                font-size: 2em;
+            }
+            .main-content {
+                padding: 30px;
+            }
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #667eea20 0%, #764ba220 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="resume-container">
+        <header class="header">
+            <h1 class="name">Alex Morgan</h1>
+            <div class="title">Senior DevOps Engineer</div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <span>📧 alex.morgan.dev@email.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱 +1 (555) 123-4567</span>
+                </div>
+                <div class="contact-item">
+                    <span>🔗 linkedin.com/in/alexmorgan-dev</span>
+                </div>
+                <div class="contact-item">
+                    <span>🐙 github.com/alexmorgan-dev</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍 San Francisco, CA</span>
+                </div>
+            </div>
+        </header>
+ 
+        <main class="main-content">
+            <section class="section">
+                <div class="section-title">
+                    <div class="section-icon">👤</div>
+                    Professional Summary
+                </div>
+                <div class="summary">
+                    Results-driven <span class="highlight">DevOps Engineer with 4+ years</span> of experience architecting, automating, and optimizing mission-critical cloud infrastructure. Proven expertise in designing <span class="highlight">CI/CD pipelines</span>, implementing <span class="highlight">Infrastructure as Code (IaC)</span> with Terraform and Ansible, and managing containerized environments using Docker and Kubernetes. Passionate about bridging development and operations through automation, monitoring, and collaborative problem-solving to deliver scalable, reliable systems.
+                </div>
+            </section>
+ 
+            <section class="section">
+                <div class="section-title">
+                    <div class="section-icon">🛠️</div>
+                    Technical Skills
+                </div>
+                <div class="skills-container">
+                    <span class="skill-tag">AWS / Azure / GCP</span>
+                    <span class="skill-tag">Terraform</span>
+                    <span class="skill-tag">Ansible</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">Jenkins</span>
+                    <span class="skill-tag">GitLab CI</span>
+                    <span class="skill-tag">GitHub Actions</span>
+                    <span class="skill-tag">Linux Administration</span>
+                    <span class="skill-tag">Prometheus</span>
+                    <span class="skill-tag">Grafana</span>
+                    <span class="skill-tag">ELK Stack</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Bash</span>
+                    <span class="skill-tag">Go</span>
+                    <span class="skill-tag">Helm</span>
+                    <span class="skill-tag">ArgoCD</span>
+                    <span class="skill-tag">Vault</span>
+                    <span class="skill-tag">Nginx</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                </div>
+            </section>
+ 
+            <section class="section">
+                <div class="section-title">
+                    <div class="section-icon">💼</div>
+                    Professional Experience
+                </div>
+ 
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Senior DevOps Engineer</div>
+                            <div class="company">TechFlow Solutions Inc.</div>
+                        </div>
+                        <div class="date-location">
+                            <div>Jan 2023 – Present</div>
+                            <div>San Francisco, CA</div>
+                        </div>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Architected and maintained <strong>multi-cloud infrastructure</strong> on AWS and Azure serving 2M+ daily active users with 99.99% uptime</li>
+                        <li>Reduced deployment time by <strong>70%</strong> by migrating from manual deployments to fully automated GitLab CI/CD pipelines with blue-green deployment strategies</li>
+                        <li>Implemented <strong>Terraform modules</strong> to standardize infrastructure provisioning across 15+ microservices, reducing environment setup time from 3 days to 2 hours</li>
+                        <li>Designed and deployed <strong>Kubernetes clusters</strong> (EKS) with auto-scaling, reducing infrastructure costs by 35% while handling 3x traffic spikes</li>
+                        <li>Built comprehensive monitoring stack using <strong>Prometheus, Grafana, and ELK</strong>, reducing MTTR (Mean Time To Recovery) from 45 minutes to 8 minutes</li>
+                        <li>Led migration of legacy Ansible playbooks to <strong>Terraform + Packer</strong> workflows, improving configuration consistency across 200+ servers</li>
+                    </ul>
+                </div>
+ 
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">DevOps Engineer</div>
+                            <div class="company">CloudScale Systems</div>
+                        </div>
+                        <div class="date-location">
+                            <div>Jun 2021 – Dec 2022</div>
+                            <div>Remote</div>
+                        </div>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Managed <strong>Docker containerization</strong> strategy for 30+ applications, implementing multi-stage builds that reduced image sizes by 60%</li>
+                        <li>Developed <strong>Ansible roles</strong> for automated server hardening and application deployment, ensuring CIS compliance across all Linux environments</li>
+                        <li>Implemented <strong>Infrastructure as Code</strong> practices using Terraform to manage AWS resources (VPC, EC2, RDS, S3, Lambda), eliminating configuration drift</li>
+                        <li>Created custom <strong>Python and Bash scripts</strong> for log aggregation and automated backup solutions, saving 20+ hours of manual work weekly</li>
+                        <li>Set up <strong> centralized logging and alerting</strong> using the ELK stack (Elasticsearch, Logstash, Kibana) with custom dashboards for real-time visibility</li>
+                        <li>Collaborated with development teams to implement <strong>GitOps workflows</strong> using ArgoCD, enabling declarative continuous delivery</li>
+                    </ul>
+                </div>
+ 
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Junior DevOps / Systems Engineer</div>
+                            <div class="company">DataStream Technologies</div>
+                        </div>
+                        <div class="date-location">
+                            <div>Aug 2020 – May 2021</div>
+                            <div>Austin, TX</div>
+                        </div>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Administered <strong>Linux servers</strong> (Ubuntu, CentOS, RHEL) for production and staging environments, ensuring security patches and updates</li>
+                        <li>Built and maintained <strong>Jenkins pipelines</strong> for automated testing and deployment of Java and Node.js applications</li>
+                        <li>Implemented <strong>Docker Compose</strong> environments for local development parity, reducing "works on my machine" issues by 90%</li>
+                        <li>Assisted in <strong>Kubernetes cluster setup</strong> and basic troubleshooting, gaining hands-on experience with pod management and service mesh concepts</li>
+                        <li>Documented operational runbooks and <strong>SRE best practices</strong>, improving team onboarding time by 50%</li>
+                    </ul>
+                </div>
+            </section>
+ 
+            <div class="two-column">
+                <section class="section">
+                    <div class="section-title">
+                        <div class="section-icon">🏆</div>
+                        Certifications
+                    </div>
+                    <div class="cert-grid">
+                        <div class="cert-item">
+                            <div class="cert-name">AWS Certified Solutions Architect</div>
+                            <div class="cert-issuer">Amazon Web Services • 2023</div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-name">Certified Kubernetes Administrator (CKA)</div>
+                            <div class="cert-issuer">Cloud Native Computing Foundation • 2022</div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-name">HashiCorp Certified: Terraform Associate</div>
+                            <div class="cert-issuer">HashiCorp • 2022</div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-name">Red Hat Certified Engineer (RHCE)</div>
+                            <div class="cert-issuer">Red Hat • 2021</div>
+                        </div>
+                    </div>
+                </section>
+ 
+                <section class="section">
+                    <div class="section-title">
+                        <div class="section-icon">🎓</div>
+                        Education
+                    </div>
+                    <div class="education-item">
+                        <div class="degree">Bachelor of Science in Computer Science</div>
+                        <div class="school">University of Texas at Austin</div>
+                        <div class="edu-details">Graduated: May 2020 | GPA: 3.7/4.0</div>
+                        <div class="edu-details" style="margin-top: 8px;">
+                            <strong>Relevant Coursework:</strong> Distributed Systems, Cloud Computing, Network Security, Database Management
+                        </div>
+                    </div>
+                </section>
+            </div>
+ 
+            <section class="section">
+                <div class="section-title">
+                    <div class="section-icon">🚀</div>
+                    Key Projects & Achievements
+                </div>
+                <div class="experience-item">
+                    <ul class="experience-list">
+                        <li><strong>Disaster Recovery Automation:</strong> Designed automated DR solution using Terraform and Ansible, reducing RTO from 4 hours to 15 minutes</li>
+                        <li><strong>Cost Optimization Initiative:</strong> Implemented Spot Instance strategies and resource right-sizing, saving $50K+ annually on cloud spend</li>
+                        <li><strong>Security Hardening:</strong> Led SOC 2 compliance effort by implementing Vault for secrets management and automated security scanning in CI/CD</li>
+                        <li><strong>Platform Migration:</strong> Migrated 50+ services from on-premises to AWS with zero downtime, utilizing Kubernetes and AWS managed services</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

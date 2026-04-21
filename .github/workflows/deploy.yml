@@ -1,0 +1,29 @@
+name: Deploy to EC2
+on:
+  push:
+    branches:
+      - main
+    workflow_dispatch:
+        
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      #- name: Start httpd service
+      #  run: |
+     #     ssh -o StrictHostKeyChecking=no -i ${{ secrets.EC2_SSH_KEY }} ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} "sudo systemctl start httpd"
+
+        
+      - name: Copy files via scp
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          source: "C:/Users/admin/OneDrive/Desktop/cloud_projects/desert/d-8/*"
+          target: "/vsr/www/html/"  
+
